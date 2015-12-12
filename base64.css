@@ -1,0 +1,27 @@
+body {
+	font-size: 100%;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#container {
+	width: 500px;
+	height: 640px;	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.textContainer {
+	height: 300px;
+	margin-bottom: 20px;
+}
+
+.labelContainer {
+	height: 10%;
+}
+
+.contentContainer {
+	height: 90%;
+}
+

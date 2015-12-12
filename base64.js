@@ -1,42 +1,36 @@
-// Add content divs for base64 and plain text text fields
+// Add content divs for base64 and plain text text field
 
-var base64Div = document.createElement("div");
-var plainTextDiv = document.createElement("div");
-
-var body = document.body;
-
-plainTextDiv.style.width = "500px";
-plainTextDiv.style.height = "300px";
-plainTextDiv.style.border = "1px solid black";
-plainTextDiv.style.marginLeft = "auto";
-plainTextDiv.style.marginRight = "auto";
-plainTextDiv.style.marginTop = "30px";
-
-body.insertBefore(plainTextDiv, null);
-
-
-base64Div.style.width = "500px";
-base64Div.style.height = "300px";
-base64Div.style.border = "1px solid black";
-base64Div.style.marginLeft = "auto";
-base64Div.style.marginRight = "auto";
-base64Div.style.marginTop = "30px";
-
-body.insertBefore(base64Div, plainTextDiv);
-
-var base64Input = document.createElement("textarea");
 var base64Label = document.createElement("span");
 base64Label.innerHTML = "Base64";
 
-var plainTextInput = document.createElement("textarea");
-
-
+var base64Input = document.createElement("textarea");
 base64Input.style.width = "100%";
 base64Input.style.height = "100%";
 
-base64Div.insertBefore(base64Input, null);
-base64Div.insertBefore(base64Label, base64Input);
+var base64LabelContainer = document.getElementById("base64Label");
+base64LabelContainer.insertBefore(base64Label, null);
 
+var base64ContentContainer = document.getElementById("base64Content");
+base64ContentContainer.insertBefore(base64Input, null);
 
+var plainTextLabel = document.createElement("span");
+plainTextLabel.innerHTML = "Plain text";
 
+var plainTextInput = document.createElement("textarea");
+plainTextInput.style.width = "100%";
+plainTextInput.style.height = "100%";
 
+var plainTextLabelContainer = document.getElementById("plainTextLabel");
+plainTextLabelContainer.insertBefore(plainTextLabel, null);
+
+var plainTextContentContainer = document.getElementById("plainTextContent");
+plainTextContentContainer.insertBefore(plainTextInput, null);
+
+// Register change event
+base64Input.oninput = function (event) {
+	plainTextInput.value = window.atob(this.value);
+};
+
+plainTextInput.oninput = function (event) {
+	base64Input.value = window.btoa(this.value);
+};
